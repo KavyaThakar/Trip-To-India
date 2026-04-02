@@ -1,0 +1,96 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: #ffffff !important;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+  z-index: 1000;
+  padding: 12px 0;
+  font-family: 'Inter', sans-serif;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.navbar-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-logo {
+  cursor: pointer;
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.logo-trip { color: #f49342; }
+.logo-to { color: #e2e8f0; font-weight: 400; margin: 0 4px; }
+.logo-india { color: #276749; } /* Darker green */
+
+.navbar-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-link {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a202c;
+  transition: color 0.2s;
+}
+
+.nav-link:hover {
+  color: #f49342;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #1a202c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.icon-btn:hover {
+  color: #f49342;
+}
+
+.book-btn {
+  background-color: #f49342;
+  color: #ffffff;
+  border: none;
+  border-radius: 9999px; /* Fully rounded */
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: background-color 0.2s;
+}
+
+.book-btn:hover {
+  background-color: #e07f30;
+}
+
+@media (max-width: 768px) {
+  .navbar-links {
+    display: none; /* Hide links on mobile for now */
+  }
+}

@@ -1,4 +1,4 @@
-const BASE_URL = "http://10.80.1.148:5000/api";
+import BASE_URL from "./apiConfig";
 
 export const savePreferences = async (prefData) => {
     const token = localStorage.getItem("token");

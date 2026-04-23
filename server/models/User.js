@@ -25,6 +25,16 @@ const userSchema = new mongoose.Schema({
         default: ""
     },
 
+    // Password Reset
+    resetPasswordToken: {
+        type: String,
+        default: null
+    },
+    resetPasswordExpires: {
+        type: Date,
+        default: null
+    },
+
     // optional saved preference snapshot
     lastTripPreference: {
         tripType: String,

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
+import ForgotPassword from './pages/ForgotPassword';
 import Onboarding from './pages/Onboarding';
 import Home from './pages/Home';
 import StateDetails from './pages/StateDetails';
@@ -29,7 +31,7 @@ function App() {
   };
 
   // Define which views should show the main Navbar
-  const showNav = !['login', 'onboarding'].includes(currentView);
+  const showNav = !['login', 'signup', 'forgot-password', 'onboarding'].includes(currentView);
 
   return (
     <div className="min-h-screen bg-[#faf8f5] font-inter">
@@ -38,7 +40,24 @@ function App() {
       )}
 
       {currentView === 'login' && (
-        <Login onLogin={() => handleNavigate('onboarding')} />
+        <Login 
+          onLogin={() => handleNavigate('onboarding')} 
+          onSignup={() => handleNavigate('signup')}
+          onForgotPassword={() => handleNavigate('forgot-password')}
+        />
+      )}
+
+      {currentView === 'signup' && (
+        <Signup 
+          onSignup={() => handleNavigate('login')} 
+          onLogin={() => handleNavigate('login')} 
+        />
+      )}
+
+      {currentView === 'forgot-password' && (
+        <ForgotPassword 
+          onBack={() => handleNavigate('login')} 
+        />
       )}
       
       {currentView === 'onboarding' && (

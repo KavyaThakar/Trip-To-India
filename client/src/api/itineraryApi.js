@@ -1,4 +1,4 @@
-const BASE_URL = "http://10.80.1.148:5000/api";
+import BASE_URL from "./apiConfig";
 
 export const generateAIRecommendation = async (prefData) => {
     const token = localStorage.getItem("token");
@@ -13,7 +13,7 @@ export const generateAIRecommendation = async (prefData) => {
     return res.json();
 };
 
-export const generateCityItinerary = async (city, duration = 5, tripType = "") => {
+export const generateCityItinerary = async ({ city, state = "", duration = 5, tripType = "" }) => {
     const token = localStorage.getItem("token");
     const res = await fetch(`${BASE_URL}/itinerary`, {
         method: "POST",
@@ -21,7 +21,7 @@ export const generateCityItinerary = async (city, duration = 5, tripType = "") =
             "Content-Type": "application/json",
             "Authorization": `Bearer ${token}`
         },
-        body: JSON.stringify({ city, duration, tripType })
+        body: JSON.stringify({ city, state, duration, tripType })
     });
     return res.json();
 };

@@ -19,10 +19,7 @@
 
 .state-hero-bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0; width: 100%; height: 100%;
   background-size: cover;
   background-position: center;
   z-index: 1;
@@ -30,19 +27,14 @@
 
 .state-hero-overlay {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0; width: 100%; height: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7));
   z-index: 2;
 }
 
 .back-btn {
   position: absolute;
-  top: 32px;
-  left: 40px;
-  z-index: 10;
+  top: 32px; left: 40px; z-index: 10;
   background-color: rgba(255, 255, 255, 0.9);
   color: #1a202c;
   border: none;
@@ -55,17 +47,13 @@
   gap: 8px;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: background-color 0.2s;
+  transition: all 0.2s;
   font-family: 'Inter', sans-serif;
 }
-
-.back-btn:hover {
-  background-color: #ffffff;
-}
+.back-btn:hover { background-color: #ffffff; transform: translateY(-1px); }
 
 .state-hero-content {
-  position: relative;
-  z-index: 3;
+  position: relative; z-index: 3;
   text-align: center;
   max-width: 800px;
   padding: 0 20px;
@@ -98,10 +86,10 @@
   color: #e2e8f0;
 }
 
-/* TABS CONTAINER */
+/* TABS */
 .tabs-wrapper {
   position: absolute;
-  bottom: -32px; /* Pull it down over the edge of the hero */
+  bottom: -32px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -135,38 +123,138 @@
   gap: 8px;
   transition: all 0.2s;
 }
+.tab-btn:hover { color: #4a5568; background-color: #f7fafc; }
+.tab-btn.active { background-color: #f49342; color: #ffffff; }
 
-.tab-btn:hover {
-  color: #4a5568;
-  background-color: #f7fafc;
-}
-
-.tab-btn.active {
-  background-color: #f49342;
-  color: #ffffff;
-}
-
-/* STATE CONTENT AREA */
+/* CONTENT AREA */
 .state-content-area {
   max-width: 1200px;
   margin: 0 auto;
   padding: 80px 20px;
 }
 
-/* PLACES GRID */
+/* SECTION HEADINGS */
+.section-heading {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #0d1b2a;
+  margin-bottom: 12px;
+}
+
+.section-subheading {
+  font-size: 16px;
+  color: #718096;
+  margin-bottom: 40px;
+}
+
+/* ======== CITIES GRID ======== */
+.cities-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 28px;
+}
+@media (min-width: 640px) { .cities-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .cities-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.city-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #edf2f7;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.city-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.1);
+  border-color: #f49342;
+}
+
+.city-card-image {
+  height: 200px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.city-card-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.4));
+  display: flex;
+  align-items: flex-start;
+  padding: 16px;
+}
+
+.city-card-badge {
+  background: rgba(255,255,255,0.9);
+  color: #276749;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.city-card-body {
+  padding: 20px;
+}
+
+.city-card-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: #0d1b2a;
+  margin-bottom: 6px;
+}
+
+.city-card-tagline {
+  font-size: 14px;
+  color: #718096;
+  margin-bottom: 16px;
+  line-height: 1.4;
+}
+
+.city-card-stats {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.city-stat {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #a0aec0;
+  font-weight: 600;
+}
+
+.city-card-action {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #f49342;
+  transition: gap 0.2s;
+}
+.city-card:hover .city-card-action { gap: 8px; }
+
+/* ======== PLACES GRID (CITY DETAIL) ======== */
 .places-grid {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 24px;
   margin-bottom: 60px;
 }
-
-@media (min-width: 768px) {
-  .places-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 1024px) {
-  .places-grid { grid-template-columns: repeat(3, 1fr); }
-}
+@media (min-width: 768px) { .places-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .places-grid { grid-template-columns: repeat(3, 1fr); } }
 
 .place-card {
   background-color: #ffffff;
@@ -176,18 +264,16 @@
   display: flex;
   flex-direction: column;
   border: 1px solid #edf2f7;
-  transition: all 0.2s;
-  cursor: pointer;
+  transition: all 0.3s;
 }
-
 .place-card:hover {
   box-shadow: 0 10px 25px rgba(0,0,0,0.06);
   border-color: #e2e8f0;
+  transform: translateY(-3px);
 }
 
 .place-icon-container {
-  width: 48px;
-  height: 48px;
+  width: 48px; height: 48px;
   border-radius: 50%;
   background-color: #f49342;
   display: flex;
@@ -208,53 +294,182 @@
 .place-desc {
   color: #718096;
   font-size: 13px;
+  line-height: 1.5;
 }
 
-/* ATTRACTIONS */
-.section-heading {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: #0d1b2a;
-  margin-bottom: 24px;
-}
-
-.attractions-grid {
+/* ======== FOOD LIST (CITY DETAIL) ======== */
+.food-list-grid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 16px;
 }
+@media (min-width: 768px) { .food-list-grid { grid-template-columns: repeat(2, 1fr); } }
 
-@media (min-width: 768px) {
-  .attractions-grid { grid-template-columns: repeat(2, 1fr); }
-}
-
-.attraction-card {
-  background-color: #ffffff;
-  border-radius: 12px;
+.food-list-card {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
   padding: 20px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #edf2f7;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+  transition: all 0.3s;
+}
+.food-list-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  border-color: #f49342;
+}
+
+.food-list-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #f49342, #e07f30);
   display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: center;
+  color: white;
+  flex-shrink: 0;
+}
+
+.food-list-info { flex: 1; }
+
+.food-list-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0d1b2a;
+  margin-bottom: 4px;
+}
+
+.food-list-desc {
+  font-size: 14px;
+  color: #718096;
+  line-height: 1.5;
+}
+
+/* ======== SHOPPING (CITY DETAIL) ======== */
+.shopping-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 24px;
+}
+@media (min-width: 640px) { .shopping-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .shopping-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.shopping-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 32px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+  border: 1px solid #edf2f7;
+  transition: all 0.3s;
+}
+.shopping-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+
+.shopping-icon-wrap {
+  width: 64px; height: 64px;
+  border-radius: 50%;
+  background-color: #276749;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.shopping-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #0d1b2a;
+  margin-bottom: 6px;
+}
+
+.shopping-desc {
+  font-size: 13px;
+  color: #718096;
+  line-height: 1.4;
+}
+
+/* ======== EXPERIENCES & GEMS ======== */
+.content-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  padding: 32px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.03);
   border: 1px solid #edf2f7;
 }
 
-.attraction-icon-wrap {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background-color: #e6f4ea; /* light green */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #276749; /* dark green */
+.content-desc {
+  color: #1a202c;
+  font-size: 15px;
+  margin-bottom: 24px;
+  line-height: 1.6;
 }
 
-.attraction-title {
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.experience-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #4a5568;
   font-size: 15px;
+  padding: 12px 16px;
+  background: #f8fafc;
+  border-radius: 12px;
+  transition: all 0.2s;
+}
+.experience-item:hover { background: #f0f4f8; }
+.experience-icon { color: #f49342; flex-shrink: 0; }
+
+/* HIDDEN GEMS */
+.gems-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.gem-item {
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: all 0.3s;
+}
+.gem-item:hover { transform: translateX(4px); }
+.gem-item.orange { background-color: #fcf8f3; border: 1px solid #fde8d0; }
+.gem-item.green { background-color: #f5fcf8; border: 1px solid #c6f6d5; }
+.gem-icon.orange { color: #f49342; }
+.gem-icon.green { color: #276749; }
+
+.gem-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
   font-weight: 600;
-  color: #1a202c;
+  color: #0d1b2a;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.gem-desc {
+  font-size: 14px;
+  color: #4a5568;
+  line-height: 1.6;
 }
 
 /* EMPTY STATE */
@@ -265,161 +480,10 @@
   font-size: 16px;
 }
 
-/* FOOD TAB */
-.food-grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 24px;
-}
-@media (min-width: 768px) {
-  .food-grid { grid-template-columns: repeat(2, 1fr); }
-}
-.food-card {
-  position: relative;
-  height: 240px;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-  border: 1px solid #edf2f7;
-}
-.food-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.food-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 50%;
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 20px;
-  color: white;
-}
-.food-icon-wrap {
-  display: inline-flex;
-  color: #f49342;
-  margin-bottom: 8px;
-}
-.food-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-/* SHOPPING TAB */
-.shopping-grid {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  gap: 24px;
-}
-@media (min-width: 640px) {
-  .shopping-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (min-width: 1024px) {
-  .shopping-grid { grid-template-columns: repeat(4, 1fr); }
-}
-.shopping-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  padding: 40px 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-  border: 1px solid #edf2f7;
-}
-.shopping-icon-wrap {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background-color: #276749; /* Green */
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 16px;
-}
-.shopping-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: #0d1b2a;
-}
-
-/* EXPERIENCES & GEMS TABS */
-.content-card {
-  background-color: #ffffff;
-  border-radius: 12px;
-  padding: 32px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.03);
-  border: 1px solid #edf2f7;
-}
-.content-desc {
-  color: #1a202c;
-  font-size: 15px;
-  margin-bottom: 24px;
-  line-height: 1.6;
-}
-.experience-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.experience-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  color: #4a5568;
-  font-size: 14px;
-}
-.experience-icon {
-  color: #f49342;
-}
-
-/* HIDDEN GEMS GRID */
-.gems-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-.gem-item {
-  border-radius: 8px;
-  padding: 20px;
-  display: flex;
-  gap: 16px;
-  align-items: flex-start;
-}
-.gem-item.orange {
-  background-color: #fcf8f3; /* very light orange tint */
-  border: 1px solid #fcf8f3;
-}
-.gem-item.green {
-  background-color: #f5fcf8; /* very light green tint */
-  border: 1px solid #f5fcf8;
-}
-.gem-icon.orange {
-  color: #f49342;
-}
-.gem-icon.green {
-  color: #276749;
-}
-.gem-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 16px;
-  font-weight: 600;
-  color: #0d1b2a;
-  margin-bottom: 4px;
-  display: block;
-}
-.gem-desc {
-  font-size: 13px;
-  color: #4a5568;
-  line-height: 1.5;
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .state-hero-title { font-size: 40px; }
+  .tabs-nav { flex-wrap: wrap; border-radius: 16px; gap: 4px; }
+  .tab-btn { flex: none; padding: 10px 16px; font-size: 12px; }
+  .back-btn { top: 16px; left: 16px; }
 }

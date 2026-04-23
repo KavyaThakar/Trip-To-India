@@ -228,91 +228,124 @@
   background-color: #276749; /* Darker green or soft green based on exact shot */
 }
 
-/* DAY CARDS */
+/* DAY CARDS - GOLD STANDARD */
 .day-card {
   flex: 1;
   background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
-  padding: 24px;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+  padding: 32px;
   border: 1px solid #edf2f7;
+  transition: transform 0.3s ease;
 }
 
 .day-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #f7fafc;
   padding-bottom: 16px;
-  border-bottom: 1px solid #edf2f7;
-  margin-bottom: 20px;
 }
 
-.day-title {
+.day-title-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.day-number {
+  font-size: 11px;
+  font-weight: 800;
+  color: #f49342;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.day-theme-title {
   font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 24px;
+  font-weight: 700;
   color: #1a202c;
+  margin: 0;
+}
+
+/* NARRATIVE ACTIVITIES */
+.narrative-activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.narrative-activity-item {
+  display: flex;
+  gap: 16px;
+  position: relative;
+}
+
+.activity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #276749;
+  margin-top: 8px;
+  flex-shrink: 0;
+}
+
+.activity-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #4a5568;
+  margin: 0;
+}
+
+/* DINING SECTION */
+.day-food-recommendations {
+  background-color: #f8fafc;
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px dashed #e2e8f0;
+}
+
+.food-header {
   display: flex;
   align-items: center;
   gap: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #276749;
+  text-transform: uppercase;
+  margin-bottom: 12px;
 }
 
-.day-title-input {
-  border: none;
-  border-bottom: 1px dashed #cbd5e0;
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
+.food-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.food-tag {
+  background: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #2d3748;
   font-weight: 600;
-  color: #1a202c;
-  outline: none;
-  background: transparent;
-  width: 200px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
 }
 
-.day-title-input:focus {
-  border-bottom-color: #f49342;
+/* EMPTY STATE */
+.empty-itinerary {
+  text-align: center;
+  padding: 60px 40px;
+  background: white;
+  border-radius: 20px;
+  border: 2px dashed #e2e8f0;
+  color: #718096;
 }
 
-.remove-day-btn {
-  background: none;
-  border: none;
-  color: #e53e3e; /* Red color */
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 4px;
-  transition: transform 0.2s;
-}
-
-.remove-day-btn:hover {
-  transform: scale(1.1);
-}
-
-/* ACTIVITY LIST */
-.activity-list {
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.activity-item {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  font-size: 15px;
-  color: #4a5568;
-}
-
-.activity-icon {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: #e6f4ea; /* Light green */
-  color: #276749; /* Dark green */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.empty-icon {
+  margin-bottom: 20px;
+  opacity: 0.3;
 }
 
 /* SMART TRAVEL TIPS (RIGHT COL) */

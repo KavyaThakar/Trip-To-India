@@ -1,26 +1,31 @@
 import { useState } from "react";
 
-const BASE_URL = "http://10.80.1.148:5000/api";
+import BASE_URL from "../api/apiConfig";
 
 export default function ForgotPassword({ onBack }) {
     const [email, setEmail] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [message, setMessage] = useState("");
 
     const handleSubmit = async () => {
+        if (!email) return;
+        setLoading(true);
+        setMessage("");
+
         try {
             const res = await fetch(`${BASE_URL}/auth/forgot-password`, {
                 method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
+                headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email })
             });
 
             const data = await res.json();
-
-            alert(data.message || "Check your email");
+            setMessage(data.message || "Check your email");
 
         } catch (err) {
-            alert("Error sending email");
+            setMessage("Error sending email. Please try again.");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -37,8 +42,10 @@ export default function ForgotPassword({ onBack }) {
 
             <br /><br />
 
-            <button onClick={handleSubmit}>
-                Send Reset Link
+            {message && <p style={{ color: message.includes("Error") ? '#e53e3e' : '#276749', marginBottom: '16px' }}>{message}</p>}
+
+            <button onClick={handleSubmit} disabled={loading}>
+                {loading ? "Sending..." : "Send Reset Link"}
             </button>
 
             <br /><br />
